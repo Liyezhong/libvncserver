@@ -45,6 +45,8 @@ install:
   - cd ..
   # go back to source root
   - cd ..
+  - 7z a deps.zip -r deps
+  - appveyor PushArtifact deps.zip
 
 build_script:
   - mkdir build
@@ -54,16 +56,16 @@ build_script:
   - cmake --build .
   - 7z a libvncserver.zip ..\build
   - ctest -C Debug --output-on-failure
-  - appveyor PushArtifact libvncserver.zip
+  - appveyor PushArtifact build.zip
   
   
 #---------------------------------#
 #      artifacts configuration    #
 #---------------------------------#
 
-artifacts:
+#artifacts:
 
  # pushing a single file
-  - path: libvncserver.zip
+#  - path: libvncserver.zip
 
 

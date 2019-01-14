@@ -45,7 +45,7 @@ install:
   - cd ..
   # go back to source root
   - cd ..
-  - 7z a deps.zip -r deps >nul 2>nul
+  - 7z a deps.zip -r deps >nul 2>nul | echo 1
   - appveyor PushArtifact deps.zip
 
 build_script:
